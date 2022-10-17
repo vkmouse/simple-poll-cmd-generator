@@ -3,7 +3,7 @@ import { IconButton } from '../Styles/Button';
 import Row from '../Styles/Row';
 import Vote from '../Styles/Vote';
 
-function VoteTitleBlock() {
+function VoteTitle() {
   return (
     <Row>
       <Vote type='text' placeholder='投票主題' />
@@ -20,4 +20,4 @@ function AddIcon() {
   );
 }
 
-export default VoteTitleBlock;
+export default VoteTitle;

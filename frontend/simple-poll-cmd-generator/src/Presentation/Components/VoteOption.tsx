@@ -7,7 +7,7 @@ interface Props {
   placeholder?: string
 }
 
-function Option(props: Props) {
+function VoteOption(props: Props) {
   const { placeholder } = props;
   return (
     <Row>
@@ -25,4 +25,4 @@ function DeleteOptionIcon() {
   );
 }
 
-export default Option;
+export default VoteOption;

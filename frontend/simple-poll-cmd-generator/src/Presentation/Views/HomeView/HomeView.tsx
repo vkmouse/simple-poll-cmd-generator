@@ -3,7 +3,7 @@ import React from 'react';
 import GenerateCommandButton from '../../Components/GenerateCommandButton';
 import Header from '../../Components/Header';
 import VoteOption from '../../Components/VoteOption';
-import VoteTitleBlock from '../../Components/VoteTitleBlock';
+import VoteTitle from '../../Components/VoteTitle';
 
 function HomeView() {
   const Main = styled.div({
@@ -26,7 +26,7 @@ function HomeView() {
       <Header />
       <Main>
         <Container>
-            <VoteTitleBlock />
+            <VoteTitle />
             <GenerateCommandButton />
             <VoteOption placeholder='選項 1' />
             <VoteOption placeholder='選項 2' />
