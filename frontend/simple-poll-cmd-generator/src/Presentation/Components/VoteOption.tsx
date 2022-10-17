@@ -1,4 +1,5 @@
 import React from 'react';
+import Row from '../Styles/Row';
 
 interface Props {
   placeholder?: string
@@ -7,9 +8,9 @@ interface Props {
 function Option(props: Props) {
   const { placeholder } = props;
   return (
-    <div className='row'>
+    <Row>
       <input className='vote vote-item' type='text' placeholder={placeholder} />
-    </div>
+    </Row>
   );
 }
 

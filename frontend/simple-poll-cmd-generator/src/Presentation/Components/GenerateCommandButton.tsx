@@ -1,10 +1,16 @@
+import styled from '@emotion/styled';
 import React from 'react';
+import Row from '../Styles/Row';
 
 function GenerateCommandButton() {
+  const Container = styled(Row)`
+    justify-content: end
+  `
+  
   return (
-    <div className='row d-flex justify-content-end'>
+    <Container>
       <button>產生投票指令</button>
-    </div>
+    </Container>
   );
 }
 
