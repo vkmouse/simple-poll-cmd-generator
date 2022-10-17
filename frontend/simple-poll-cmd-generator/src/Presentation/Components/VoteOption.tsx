@@ -1,5 +1,7 @@
+import styled from '@emotion/styled';
 import React from 'react';
 import Row from '../Styles/Row';
+import Vote from '../Styles/Vote';
 
 interface Props {
   placeholder?: string
@@ -7,9 +9,13 @@ interface Props {
 
 function Option(props: Props) {
   const { placeholder } = props;
+  const VoteItem = styled(Vote)`
+    width: 100%;
+  `
+
   return (
     <Row>
-      <input className='vote vote-item' type='text' placeholder={placeholder} />
+      <VoteItem type='text' placeholder={placeholder} />
     </Row>
   );
 }

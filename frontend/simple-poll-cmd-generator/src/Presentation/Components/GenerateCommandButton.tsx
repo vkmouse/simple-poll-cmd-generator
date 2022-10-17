@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import Button from '../Styles/Button';
 import Row from '../Styles/Row';
 
 function GenerateCommandButton() {
@@ -9,7 +10,7 @@ function GenerateCommandButton() {
   
   return (
     <Container>
-      <button>產生投票指令</button>
+      <Button>產生投票指令</Button>
     </Container>
   );
 }
