@@ -3,11 +3,18 @@ import { IconButton } from '../Styles/Button';
 import Row from '../Styles/Row';
 import Vote from '../Styles/Vote';
 
-function VoteTitle() {
+interface VoteTitleProps {
+  title?: string
+  onAddOptionClick: () => void
+  onTitleChange: React.Dispatch<React.SetStateAction<string>>
+}
+
+function VoteTitle(props: VoteTitleProps) {
+  const { title, onAddOptionClick, onTitleChange } = props;
   return (
     <Row>
-      <Vote type='text' placeholder='投票主題' />
-      <IconButton><AddIcon /></IconButton>
+      <Vote type='text' placeholder='投票主題' onChange={e => onTitleChange(e.target.value)} value={title}/>
+      <IconButton onClick={onAddOptionClick}><AddIcon /></IconButton>
     </Row>
   );
 }
