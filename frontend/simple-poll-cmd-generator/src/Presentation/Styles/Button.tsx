@@ -16,4 +16,10 @@ const Button = styled.button({
   }
 });
 
+export const IconButton = styled(Button)`
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+`;
+
 export default Button;
