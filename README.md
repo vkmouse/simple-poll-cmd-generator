@@ -8,4 +8,7 @@ This project use to generate the command of simple poll which is a discord bot f
 npm install @emotion/styled
 npm install @emotion/react
 npm install react-router-dom
+npm install react-redux
+npm install @reduxjs/toolkit
+npm install @types/react-redux
 ```
