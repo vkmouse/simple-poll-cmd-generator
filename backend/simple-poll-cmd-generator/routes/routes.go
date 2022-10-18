@@ -11,11 +11,11 @@ func Setup(templateFolder string, staticFolder string) *gin.Engine {
 
 	router.LoadHTMLGlob(templateFolder + "/*")
 	router.Static("/static", staticFolder)
-	router.GET("/", homePage)
+	router.NoRoute(noRoute)
 
 	return router
 }
 
-func homePage(ctx *gin.Context) {
+func noRoute(ctx *gin.Context) {
 	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
