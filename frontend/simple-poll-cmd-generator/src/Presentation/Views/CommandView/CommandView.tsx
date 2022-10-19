@@ -13,7 +13,6 @@ const Container = styled.div({
 const Content = styled.span({
   color: '#D9DADB',
   display: 'inline-block',
-  fontSize: '125%',
   padding: '0.5em',
 });
 
@@ -31,11 +30,19 @@ function CommandView() {
   });
 
   return (
+    <>
+    <Container> 
+      <Content>
+        請先輸入 '/'，再貼上以下命令
+      </Content>
+    </Container>
+    <br />
     <Container> 
       <Content>
         {command}
       </Content>
     </Container>
+    </>
   );
 }
 

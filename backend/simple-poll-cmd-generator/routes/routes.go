@@ -38,7 +38,7 @@ func generate(ctx *gin.Context) {
 	var voteInfo VoteInfo
 	jsonData, _ := ioutil.ReadAll(ctx.Request.Body)
 	json.Unmarshal(jsonData, &voteInfo)
-	command := "/poll question:" + voteInfo.Title
+	command := "poll question:" + voteInfo.Title
 	for index, option := range voteInfo.Options {
 		command += fmt.Sprintf(" choice_%c:%s", index+'a', option.Name)
 	}
