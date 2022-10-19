@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '../Store/store';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../Store/store";
 
 interface OptionState {
   id: number

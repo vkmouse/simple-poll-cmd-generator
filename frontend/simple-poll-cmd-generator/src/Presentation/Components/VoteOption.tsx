@@ -1,22 +1,20 @@
-import React from 'react';
-import { IconButton } from '../Styles/Button';
-import Row from '../Styles/Row';
-import Vote from '../Styles/Vote';
+import { IconButton } from "../Styles/Button"
+import Row from "../Styles/Row"
+import Vote from "../Styles/Vote"
 
 interface VoteOptionProps {
   key: number
   placeholder?: string
   value?: string
-  deleteOptionClick: () => void
-  optionChange: (text: string) => void
+  onDeleteOptionClick: () => void
+  onOptionChange: (s: string) => void
 }
 
 function VoteOption(props: VoteOptionProps) {
-
   return (
     <Row>
-      <Vote type='text' {...props} onChange={e => props.optionChange(e.target.value)} />
-      <IconButton onClick={props.deleteOptionClick}><DeleteOptionIcon /></IconButton>
+      <Vote type='text' {...props} onChange={e => props.onOptionChange(e.target.value)} />
+      <IconButton onClick={props.onDeleteOptionClick}><DeleteOptionIcon /></IconButton>
     </Row>
   );
 }

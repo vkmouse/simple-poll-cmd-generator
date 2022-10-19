@@ -1,14 +1,13 @@
-import styled from '@emotion/styled';
-import React from 'react';
-import Button from '../Styles/Button';
-import Row from '../Styles/Row';
+import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import Button from "../Styles/Button";
+import Row from "../Styles/Row";
+
+const Container = styled(Row)`
+  justify-content: end
+`
 
 function GenerateCommandButton() {
-  const Container = styled(Row)`
-    justify-content: end
-  `
-
   return (
     <Container>
       <Link to="/command">

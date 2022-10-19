@@ -1,7 +1,6 @@
-import React from 'react';
-import { IconButton } from '../Styles/Button';
-import Row from '../Styles/Row';
-import Vote from '../Styles/Vote';
+import { IconButton } from "../Styles/Button";
+import Row from "../Styles/Row";
+import Vote from "../Styles/Vote";
 
 interface VoteTitleProps {
   title?: string

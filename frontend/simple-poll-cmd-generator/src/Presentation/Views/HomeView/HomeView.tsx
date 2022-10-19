@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../Data/Store/hooks';
-import GenerateCommandButton from '../../Components/GenerateCommandButton';
-import Header from '../../Components/Header';
-import VoteOption from '../../Components/VoteOption';
-import VoteTitle from '../../Components/VoteTitle';
-import { addOption, deleteOption, changeOption } from '../../../Data/Slices/optionsSlice'
+import styled from "@emotion/styled";
+import { useState } from "react";
+import { addOption, deleteOption, changeOption } from "../../../Data/Slices/optionsSlice";
+import { useAppSelector, useAppDispatch } from "../../../Data/Store/hooks";
+import GenerateCommandButton from "../../Components/GenerateCommandButton";
+import Header from "../../Components/Header";
+import VoteOption from "../../Components/VoteOption";
+import VoteTitle from "../../Components/VoteTitle";
 
 const Main = styled.div({
   display: 'flex',
@@ -44,8 +44,8 @@ function HomeView() {
                 key={p.id}
                 value={p.name}
                 placeholder={`選項 ${index + 1}`}
-                deleteOptionClick={() => dispatch(deleteOption(p.id))}
-                optionChange={text => dispatch(changeOption({ ...p, name: text }))}
+                onDeleteOptionClick={() => dispatch(deleteOption(p.id))}
+                onOptionChange={s => dispatch(changeOption({ ...p, name: s }))}
               />
             );
           })}
