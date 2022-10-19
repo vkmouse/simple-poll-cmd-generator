@@ -23,11 +23,8 @@ const Main = styled.div({
 
 const Container = styled.div({
   backgroundColor: '#36393F',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(2, 1fr)',
   paddingTop: '1em',
   paddingBottom: '1em',
-  rowGap: '1em',
   width: '800px'
 })
 

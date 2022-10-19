@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { useState } from "react";
 import { addOption, deleteOption, changeOption } from "../../../Data/Slices/optionsSlice";
 import { useAppSelector, useAppDispatch } from "../../../Data/Store/hooks";
@@ -5,13 +6,19 @@ import GenerateCommandButton from "../../Components/GenerateCommandButton";
 import VoteOption from "../../Components/VoteOption";
 import VoteTitle from "../../Components/VoteTitle";
 
+const Grid = styled.div({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  rowGap: '1em',
+})
+
 function HomeView() {
   const options = useAppSelector(state => state.options.value);
   const dispatch = useAppDispatch();
   const [title, setTitle] = useState('');
 
   return (
-    <>
+    <Grid>
       <VoteTitle 
         title={title}
         onAddOptionClick={() => dispatch(addOption())}
@@ -29,7 +36,7 @@ function HomeView() {
           />
         );
       })}
-    </>
+    </Grid>
   );
 }
 
