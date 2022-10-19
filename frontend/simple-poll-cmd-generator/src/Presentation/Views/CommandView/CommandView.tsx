@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { useState, useEffect } from "react";
+import { useAppSelector } from "../../../Data/Store/hooks";
 
 const Container = styled.div({
   backgroundColor: '#40444B',
@@ -16,10 +18,22 @@ const Content = styled.span({
 });
 
 function CommandView() {
+  const voteInfo = useAppSelector(state => state.voteInfo);
+  const [command, setCommand] = useState('Please wait, command is generating...');
+
+  useEffect(() => {
+    fetch('/generate', {
+      method: 'POST',
+      body: JSON.stringify(voteInfo),
+    })
+    .then(response => response.json())
+    .then(data => setCommand(data['command']));
+  });
+
   return (
     <Container> 
       <Content>
-        Please wait, command is generating...
+        {command}
       </Content>
     </Container>
   );
