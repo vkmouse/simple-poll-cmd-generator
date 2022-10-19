@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const Container = styled.div({
   alignItems: 'center',
@@ -13,10 +14,29 @@ const Title = styled.div({
   color: '#fff'
 })
 
+const Button = styled.button({
+  backgroundColor: 'inherit',
+  border: 0,
+  borderRadius: '10px',
+  color: '#fff',
+  fontSize: '125%',
+  height: '100%',
+  paddingLeft: '0.5em',
+  paddingRight: '0.5em',
+  
+  ":hover": {
+    cursor: 'pointer'
+  }
+});
+
 function Header() {
   return (
     <Container>
-      <Title>Simple Poll 指令產生器</Title>
+      <Link to="/">
+        <Button>
+          <Title>Simple Poll 指令產生器</Title>
+        </Button>
+      </Link>
     </Container>
   );
 }
