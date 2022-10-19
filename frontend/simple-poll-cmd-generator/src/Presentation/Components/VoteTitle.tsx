@@ -5,7 +5,7 @@ import Vote from "../Styles/Vote";
 interface VoteTitleProps {
   title?: string
   onAddOptionClick: () => void
-  onTitleChange: React.Dispatch<React.SetStateAction<string>>
+  onTitleChange: (s: string) => void
 }
 
 function VoteTitle(props: VoteTitleProps) {

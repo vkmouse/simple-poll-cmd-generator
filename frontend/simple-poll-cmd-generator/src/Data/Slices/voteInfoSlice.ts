@@ -6,10 +6,12 @@ interface OptionState {
 }
 
 interface VoteInfoState {
+  title: string
   options: OptionState[]
 }
 
 const initialState: VoteInfoState = {
+  title: '',
   options: []
 }
 
@@ -17,6 +19,9 @@ export const optionsSlice = createSlice({
   name: 'vote info',
   initialState,
   reducers: {
+    setTitle: (state, action: PayloadAction<string>) => {
+      state.title = action.payload;
+    },
     addOption: (state) => {
       const nextId = () => {
         if (state.options.length > 0) {
@@ -42,5 +47,5 @@ export const optionsSlice = createSlice({
   }
 });
 
-export const { addOption, deleteOption, changeOption } = optionsSlice.actions;
+export const { addOption, deleteOption, changeOption, setTitle } = optionsSlice.actions;
 export default optionsSlice.reducer;
