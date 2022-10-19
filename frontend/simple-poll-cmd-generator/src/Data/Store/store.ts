@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import optionsReducer from '../Slices/optionsSlice'
+import voteInfoReducer from '../Slices/voteInfoSlice'
 
 const store = configureStore({
   reducer: {
-    options: optionsReducer
+    voteInfo: voteInfoReducer
   },
 })
 

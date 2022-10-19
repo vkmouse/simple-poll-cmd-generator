@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { addOption, deleteOption, changeOption } from "../../../Data/Slices/optionsSlice";
+import { addOption, deleteOption, changeOption } from "../../../Data/Slices/voteInfoSlice";
 import { useAppSelector, useAppDispatch } from "../../../Data/Store/hooks";
 import GenerateCommandButton from "../../Components/GenerateCommandButton";
 import VoteOption from "../../Components/VoteOption";
@@ -13,7 +13,7 @@ const Grid = styled.div({
 })
 
 function HomeView() {
-  const options = useAppSelector(state => state.options.value);
+  const options = useAppSelector(state => state.voteInfo.options);
   const dispatch = useAppDispatch();
   const [title, setTitle] = useState('');
 
