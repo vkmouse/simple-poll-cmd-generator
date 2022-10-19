@@ -26,4 +26,4 @@ REM Clean
 CD %~dp0
 RMDIR /S /Q "simple-poll-cmd-generator"
 
-PAUSE
+ECHO http://app-42554f66-5869-4150-a104-f0d0175421fd.cleverapps.io/
