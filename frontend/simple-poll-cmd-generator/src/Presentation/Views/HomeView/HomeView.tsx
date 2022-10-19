@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 import React, { useRef, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../Data/Store/hooks';
 import GenerateCommandButton from '../../Components/GenerateCommandButton';
 import Header from '../../Components/Header';
 import VoteOption, { VoteOptionProps } from '../../Components/VoteOption';
 import VoteTitle from '../../Components/VoteTitle';
+import { addOption as add } from '../../../Data/Slices/optionsSlice'
 
 const Main = styled.div({
   display: 'flex',
@@ -44,6 +46,7 @@ function HomeView() {
       optionChange: value => changeOption(key, value)
     }];
     setOptionProps(optionPropsRef.current);
+    dispatch(add({ id: key, name: '' }))
   }
 
   const deleteOption = (key: number) => {
@@ -61,6 +64,9 @@ function HomeView() {
     setOptionProps(optionPropsRef.current)
   }
 
+  const options = useAppSelector(state => state.options.value);
+  const dispatch = useAppDispatch();
+
   return (
     <>
       <Header />
@@ -75,6 +81,7 @@ function HomeView() {
           {optionProps.map(props => 
             <VoteOption {...props} />
           )}
+          {options.map(p => <div>{p.id}, {p.name}</div>)}
         </Container>
       </Main>
     </>
