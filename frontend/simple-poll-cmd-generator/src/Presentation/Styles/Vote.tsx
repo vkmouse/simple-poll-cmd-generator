@@ -6,10 +6,9 @@ const Vote = styled.input({
   borderWidth: '0px',
   color: '#D9DADB',
   flexGrow: 1,
-  fontSize: '125%',
   height: '100%',
   padding: '0 0.5em',
-  
+  width: '0',
   ":focus": {
     outlineWidth: 0
   }

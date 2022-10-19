@@ -13,6 +13,24 @@ body {
   color: #72767D;
   margin: 0;
   font-family: 微軟正黑體;
+  font-size: 125%;
+}
+button {
+  font-size: 125%;
+}
+input {
+  font-size: 125%;
+}
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 100%;
+  }
+  button {
+    font-size: 100%;
+  }
+  input {
+    font-size: 100%;
+  }
 }
 `
 

@@ -4,15 +4,27 @@ import Button from "../Styles/Button";
 import Row from "../Styles/Row";
 
 const Container = styled(Row)`
-  justify-content: end
+  justify-content: end;
+`
+
+const CustomLink = styled(Link)`
+@media (max-width: 600px) {
+  width: 100%;
+}
+`
+
+const CustomButton = styled(Button)`
+@media (max-width: 600px) {
+  width: 100%;
+}
 `
 
 function GenerateCommandButton() {
   return (
     <Container>
-      <Link to="/command">
-        <Button>產生投票指令</Button>
-      </Link>
+      <CustomLink to="/command">
+        <CustomButton>產生投票指令</CustomButton>
+      </CustomLink>
     </Container>
   );
 }

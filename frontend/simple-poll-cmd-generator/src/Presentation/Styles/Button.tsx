@@ -5,11 +5,9 @@ const Button = styled.button({
   border: 0,
   borderRadius: '10px',
   color: '#fff',
-  fontSize: '125%',
   height: '100%',
   paddingLeft: '0.5em',
   paddingRight: '0.5em',
-  
   ":hover": {
     backgroundColor: '#40444B',
     cursor: 'pointer'
@@ -19,7 +17,7 @@ const Button = styled.button({
 export const IconButton = styled(Button)`
   display: flex;
   align-items: center;
-  margin-left: 1em;
+  margin-left: 0.25em;
 `;
 
 export default Button;

@@ -11,7 +11,10 @@ const Container = styled.div({
 
 const Title = styled.div({
   fontSize: '40px',
-  color: '#fff'
+  color: '#fff',
+  '@media (max-width: 600px)': {
+    fontSize: '28px',
+  },
 })
 
 const Button = styled.button({
