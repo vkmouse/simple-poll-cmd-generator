@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../Data/Store/hooks';
 import GenerateCommandButton from '../../Components/GenerateCommandButton';
 import Header from '../../Components/Header';
-import VoteOption, { VoteOptionProps } from '../../Components/VoteOption';
+import VoteOption from '../../Components/VoteOption';
 import VoteTitle from '../../Components/VoteTitle';
-import { addOption as add } from '../../../Data/Slices/optionsSlice'
+import { addOption, deleteOption, changeOption } from '../../../Data/Slices/optionsSlice'
 
 const Main = styled.div({
   display: 'flex',
@@ -23,49 +23,9 @@ const Container = styled.div({
 })
 
 function HomeView() {
-  const [title, setTitle] = useState('');
-  const [optionProps, setOptionProps] = useState<VoteOptionProps[]>([]);
-
-  const optionPropsRef = useRef(optionProps);
-
-  const nextKey = () => {
-    const { current } = optionPropsRef;
-    if (current.length > 0) {
-      return current[current.length - 1].key + 1;
-    }
-    return 0;
-  }
-
-  const addOption = () => {
-    const key = nextKey();
-    optionPropsRef.current = [...optionProps, {
-      key,
-      placeholder: `選項 ${key + 1}`,
-      value: '',
-      deleteOptionClick: () => deleteOption(key),
-      optionChange: value => changeOption(key, value)
-    }];
-    setOptionProps(optionPropsRef.current);
-    dispatch(add({ id: key, name: '' }))
-  }
-
-  const deleteOption = (key: number) => {
-    optionPropsRef.current = optionPropsRef.current.filter(p => p.key !== key);
-    setOptionProps(optionPropsRef.current);
-  }
-
-  const changeOption = (key: number, value: string) => {
-    const index = optionPropsRef.current.findIndex(p => p.key === key);
-    if (index !== -1) {
-      const temp = [...optionPropsRef.current];
-      temp[index].value = value;
-      optionPropsRef.current = temp;
-    }
-    setOptionProps(optionPropsRef.current)
-  }
-
   const options = useAppSelector(state => state.options.value);
   const dispatch = useAppDispatch();
+  const [title, setTitle] = useState('');
 
   return (
     <>
@@ -74,14 +34,21 @@ function HomeView() {
         <Container>
           <VoteTitle 
             title={title}
-            onAddOptionClick={addOption}
+            onAddOptionClick={() => dispatch(addOption())}
             onTitleChange={setTitle}
           />
           <GenerateCommandButton />
-          {optionProps.map(props => 
-            <VoteOption {...props} />
-          )}
-          {options.map(p => <div>{p.id}, {p.name}</div>)}
+          {options.map((p, index) => {
+            return (
+              <VoteOption
+                key={p.id}
+                value={p.name}
+                placeholder={`選項 ${index + 1}`}
+                deleteOptionClick={() => dispatch(deleteOption(p.id))}
+                optionChange={text => dispatch(changeOption({ ...p, name: text }))}
+              />
+            );
+          })}
         </Container>
       </Main>
     </>
